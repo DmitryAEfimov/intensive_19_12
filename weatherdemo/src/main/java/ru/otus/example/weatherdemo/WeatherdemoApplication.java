@@ -1,13 +1,11 @@
 package ru.otus.example.weatherdemo;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-import ru.otus.example.weatherdemo.services.WeatherAggregationService;
 
 /*
 О формате логов
@@ -23,18 +21,16 @@ http://openjdk.java.net/jeps/158
 -XX:MaxGCPauseMillis=10
 */
 
-
 @SpringBootApplication
+@Slf4j
 public class WeatherdemoApplication {
-	private static Logger logger = LoggerFactory.getLogger(WeatherAggregationService.class);
-
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 		return builder.build();
 	}
 
 	public static void main(String[] args) {
-		logger.info("starting app...");
+		log.info("starting app...");
 		SpringApplication.run(WeatherdemoApplication.class, args);
 	}
 

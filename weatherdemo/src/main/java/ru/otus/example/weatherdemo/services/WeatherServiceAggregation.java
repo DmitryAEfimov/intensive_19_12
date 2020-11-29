@@ -5,5 +5,5 @@ import ru.otus.example.weatherdemo.models.Weather;
 import java.util.List;
 
 public interface WeatherServiceAggregation {
-    List<Weather> getWeather();
+	List<Weather> getWeather();
 }
